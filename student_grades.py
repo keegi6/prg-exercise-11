@@ -6,6 +6,12 @@ class StudentsGrades:
     def __init__(self, scores):
         self.scores = scores
 
+    def average(self):
+        return sum(self.scores)/len(self.scores)
+
+    def __str__(self):
+        return f"StudentsGrades: {self.count()} studentů, průměr {self.average():.1f}"
+
     def get_by_index(self, index):
         return self.scores[index]
 
@@ -44,9 +50,11 @@ class StudentsGrades:
             count -= 1
         return scores
 
+
 def main():
     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
     result = results.scores
+    print(results)
     print(results.count())
     for i in range(results.count()):
         print(f"Student: {i}: {result[i]} points - {results.get_grade(i)}")
